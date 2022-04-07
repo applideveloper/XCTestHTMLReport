@@ -21,7 +21,7 @@ if [ ! -f $OUT_PATH ]; then
   exit 1
 fi
 
-unzip $OUT_ZIP
+unzip -j $OUT_ZIP
 
 chmod 755 xchtmlreport
 mv xchtmlreport /usr/local/bin/
