@@ -21,10 +21,9 @@ if [ ! -f $OUT_PATH ]; then
   exit 1
 fi
 
-unzip $OUT_ZIP
-
 BUILD_DIR="XCTestHTMLReport-$VERSION"
 
+unzip $OUT_ZIP -d $BUILD_DIR
 cd $BUILD_DIR
 swift build -c release
 
