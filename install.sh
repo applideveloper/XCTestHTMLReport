@@ -21,18 +21,12 @@ if [ ! -f $OUT_PATH ]; then
   exit 1
 fi
 
-BUILD_DIR="XCTestHTMLReport-$VERSION"
+unzip $OUT_ZIP
 
-unzip $OUT_ZIP -d $BUILD_DIR
-cd $BUILD_DIR
-swift build -c release
+chmod 755 xchtmlreport
+mv xchtmlreport /usr/local/bin/
 
-chmod 755 .build/release/xchtmlreport
-mv .build/release/xchtmlreport /usr/local/bin/
-
-cd ".."
 rm $OUT_ZIP
-rm -rf $BUILD_DIR
 
 printf '\e[1;32m%-6s\e[m' "Successully installed XCTestHTMLReport. Execute xchtmlreport -h for help."
 printf '\n'
